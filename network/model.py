@@ -9,17 +9,18 @@ from network.neighbour_embedding import NeighbourEmbedding
 
 
 class Model(nn.Module):
-
     def __init__(self, vocab_size, embedding_dim, neighbours, heads):
         super().__init__()
 
         self.cand_embed = nn.Linear(2, 128)
-        self.field_embed = nn.Linear(3, embedding_dim)
+        self.field_embed = nn.Linear(15, embedding_dim)
         self.embedding_dimension = embedding_dim
         self.neighbour_embeddings = NeighbourEmbedding(vocab_size, embedding_dim)
 
         self.attention_encodings = MultiHeadAttention(heads, embedding_dim * 2)
-        self.linear_projection = nn.Linear(neighbours * embedding_dim * 2, 4 * embedding_dim * 2)
+        self.linear_projection = nn.Linear(
+            neighbours * embedding_dim * 2, 4 * embedding_dim * 2
+        )
         self.linear_projection_2 = nn.Linear(128 + (2 * embedding_dim), embedding_dim)
         self.cos_sim = nn.CosineSimilarity(dim=1, eps=1e-6)
 
@@ -29,10 +30,14 @@ class Model(nn.Module):
         cand_embed = self.cand_embed(candidate)
 
         # Neighbour embeddings
-        neighbour_embeds = self.neighbour_embeddings(neighbour_words, neighbour_positions)
+        neighbour_embeds = self.neighbour_embeddings(
+            neighbour_words, neighbour_positions
+        )
 
         # Attention encodings
-        self_attention = self.attention_encodings(neighbour_embeds, neighbour_embeds, neighbour_embeds, mask=masks)
+        self_attention = self.attention_encodings(
+            neighbour_embeds, neighbour_embeds, neighbour_embeds, mask=masks
+        )
 
         # Linear projection of attention to concatenate with candidate embedding
         bs = self_attention.size(0)
