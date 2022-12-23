@@ -1,6 +1,6 @@
 absl-py==0.11.0
 cachetools==4.2.1
-certifi==2020.12.5
+certifi==2022.12.7
 chardet==4.0.0
 dateparser==1.0.0
 focal-loss-torch==0.0.7
@@ -10,14 +10,14 @@ google-auth-oauthlib==0.4.2
 grpcio
 idna==2.10
 importlib-metadata==3.4.0
-joblib==1.0.1
+joblib==1.1.1
 Markdown==3.3.3
 numpy
 oauthlib==3.1.0
 opencv-contrib-python>=4.2.0.34
 opencv-python>=4.2.0.34
 Pillow
-protobuf==3.15.1
+protobuf==3.18.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pytesseract==0.3.7
@@ -37,6 +37,7 @@ torch
 tqdm==4.57.0
 typing-extensions==3.7.4.3
 tzlocal==2.1
-urllib3==1.26.3
+urllib3==1.26.5
 Werkzeug==1.0.1
 zipp==3.4.0
+wheel>=0.38.0 # not directly required, pinned by Snyk to avoid a vulnerability
