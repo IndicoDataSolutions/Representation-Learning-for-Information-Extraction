@@ -40,3 +40,4 @@ tzlocal==2.1
 urllib3==1.26.3
 Werkzeug==1.0.1
 zipp==3.4.0
+wheel>=0.38.0 # not directly required, pinned by Snyk to avoid a vulnerability
