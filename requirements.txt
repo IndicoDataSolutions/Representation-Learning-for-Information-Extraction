@@ -2,7 +2,7 @@ absl-py==0.11.0
 cachetools==4.2.1
 certifi==2020.12.5
 chardet==4.0.0
-dateparser==1.0.0
+dateparser==1.1.6
 focal-loss-torch==0.0.7
 future==0.18.2
 google-auth==1.27.0
