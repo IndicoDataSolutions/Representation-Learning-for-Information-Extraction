@@ -1,6 +1,6 @@
 absl-py==0.11.0
 cachetools==4.2.1
-certifi==2020.12.5
+certifi==2023.7.22
 chardet==4.0.0
 dateparser==1.0.0
 focal-loss-torch==0.0.7
