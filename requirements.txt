@@ -11,7 +11,7 @@ grpcio
 idna==2.10
 importlib-metadata==3.4.0
 joblib==1.0.1
-Markdown==3.3.3
+Markdown==3.8.1
 numpy
 oauthlib==3.1.0
 opencv-contrib-python>=4.2.0.34
